@@ -1,0 +1,405 @@
+[
+ {
+  "study": "C",
+  "rule": "reactive",
+  "rate": 0.02,
+  "corr": "independent",
+  "exposures": 545,
+  "fr": 14,
+  "obs_rate": 0.0257,
+  "n_steady": 1,
+  "pred_steady": 0.02,
+  "pred_transient": 0.02,
+  "nstar_hist": {
+   "1": 545
+  }
+ },
+ {
+  "study": "C",
+  "rule": "reactive",
+  "rate": 0.05,
+  "corr": "independent",
+  "exposures": 542,
+  "fr": 30,
+  "obs_rate": 0.0554,
+  "n_steady": 1,
+  "pred_steady": 0.05,
+  "pred_transient": 0.05,
+  "nstar_hist": {
+   "1": 542
+  }
+ },
+ {
+  "study": "C",
+  "rule": "reactive",
+  "rate": 0.1,
+  "corr": "independent",
+  "exposures": 530,
+  "fr": 55,
+  "obs_rate": 0.1038,
+  "n_steady": 1,
+  "pred_steady": 0.1,
+  "pred_transient": 0.1,
+  "nstar_hist": {
+   "1": 530
+  }
+ },
+ {
+  "study": "C",
+  "rule": "revocable",
+  "rate": 0.02,
+  "corr": "independent",
+  "exposures": 720,
+  "fr": 18,
+  "obs_rate": 0.025,
+  "n_steady": 1,
+  "pred_steady": 0.02,
+  "pred_transient": 0.02,
+  "nstar_hist": {
+   "1": 720
+  }
+ },
+ {
+  "study": "C",
+  "rule": "revocable",
+  "rate": 0.05,
+  "corr": "independent",
+  "exposures": 771,
+  "fr": 39,
+  "obs_rate": 0.0506,
+  "n_steady": 1,
+  "pred_steady": 0.05,
+  "pred_transient": 0.05,
+  "nstar_hist": {
+   "1": 771
+  }
+ },
+ {
+  "study": "C",
+  "rule": "revocable",
+  "rate": 0.1,
+  "corr": "independent",
+  "exposures": 797,
+  "fr": 79,
+  "obs_rate": 0.0991,
+  "n_steady": 1,
+  "pred_steady": 0.1,
+  "pred_transient": 0.1,
+  "nstar_hist": {
+   "1": 797
+  }
+ },
+ {
+  "study": "D",
+  "rule": "belief",
+  "rate": 0.1,
+  "corr": "independent",
+  "exposures": 701,
+  "fr": 7,
+  "obs_rate": 0.01,
+  "n_steady": 2,
+  "pred_steady": 0.01,
+  "pred_transient": 0.0112,
+  "nstar_hist": {
+   "1": 9,
+   "2": 692
+  }
+ },
+ {
+  "study": "D",
+  "rule": "belief",
+  "rate": 0.1,
+  "corr": "persistent",
+  "exposures": 701,
+  "fr": 12,
+  "obs_rate": 0.0171,
+  "n_steady": 2,
+  "pred_steady": 0.0178,
+  "pred_transient": 0.0178,
+  "nstar_hist": {
+   "1": 3,
+   "2": 698
+  }
+ },
+ {
+  "study": "D",
+  "rule": "belief",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 804,
+  "fr": 31,
+  "obs_rate": 0.0386,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.045,
+  "nstar_hist": {
+   "1": 25,
+   "2": 779
+  }
+ },
+ {
+  "study": "D",
+  "rule": "belief",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 755,
+  "fr": 23,
+  "obs_rate": 0.0305,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.0401,
+  "nstar_hist": {
+   "1": 6,
+   "2": 749
+  }
+ },
+ {
+  "study": "D",
+  "rule": "reactive",
+  "rate": 0.1,
+  "corr": "independent",
+  "exposures": 523,
+  "fr": 53,
+  "obs_rate": 0.1013,
+  "n_steady": 1,
+  "pred_steady": 0.1,
+  "pred_transient": 0.1,
+  "nstar_hist": {
+   "1": 523
+  }
+ },
+ {
+  "study": "D",
+  "rule": "reactive",
+  "rate": 0.1,
+  "corr": "persistent",
+  "exposures": 554,
+  "fr": 12,
+  "obs_rate": 0.0217,
+  "n_steady": 1,
+  "pred_steady": 0.0222,
+  "pred_transient": 0.0222,
+  "nstar_hist": {
+   "1": 554
+  }
+ },
+ {
+  "study": "D",
+  "rule": "reactive",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 432,
+  "fr": 95,
+  "obs_rate": 0.2199,
+  "n_steady": 1,
+  "pred_steady": 0.2,
+  "pred_transient": 0.2,
+  "nstar_hist": {
+   "1": 432
+  }
+ },
+ {
+  "study": "D",
+  "rule": "reactive",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 571,
+  "fr": 38,
+  "obs_rate": 0.0665,
+  "n_steady": 1,
+  "pred_steady": 0.05,
+  "pred_transient": 0.05,
+  "nstar_hist": {
+   "1": 571
+  }
+ },
+ {
+  "study": "D",
+  "rule": "revocable",
+  "rate": 0.1,
+  "corr": "independent",
+  "exposures": 730,
+  "fr": 82,
+  "obs_rate": 0.1123,
+  "n_steady": 1,
+  "pred_steady": 0.1,
+  "pred_transient": 0.1,
+  "nstar_hist": {
+   "1": 730
+  }
+ },
+ {
+  "study": "D",
+  "rule": "revocable",
+  "rate": 0.1,
+  "corr": "persistent",
+  "exposures": 708,
+  "fr": 20,
+  "obs_rate": 0.0282,
+  "n_steady": 1,
+  "pred_steady": 0.0222,
+  "pred_transient": 0.0222,
+  "nstar_hist": {
+   "1": 708
+  }
+ },
+ {
+  "study": "D",
+  "rule": "revocable",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 572,
+  "fr": 134,
+  "obs_rate": 0.2343,
+  "n_steady": 1,
+  "pred_steady": 0.2,
+  "pred_transient": 0.2,
+  "nstar_hist": {
+   "1": 572
+  }
+ },
+ {
+  "study": "D",
+  "rule": "revocable",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 747,
+  "fr": 50,
+  "obs_rate": 0.0669,
+  "n_steady": 1,
+  "pred_steady": 0.05,
+  "pred_transient": 0.05,
+  "nstar_hist": {
+   "1": 747
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a02",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 756,
+  "fr": 54,
+  "obs_rate": 0.0714,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.0783,
+  "nstar_hist": {
+   "1": 181,
+   "2": 575
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a02",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 773,
+  "fr": 26,
+  "obs_rate": 0.0336,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.0421,
+  "nstar_hist": {
+   "1": 160,
+   "2": 613
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a10",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 809,
+  "fr": 24,
+  "obs_rate": 0.0297,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.0455,
+  "nstar_hist": {
+   "1": 28,
+   "2": 781
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a10",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 707,
+  "fr": 24,
+  "obs_rate": 0.0339,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.0401,
+  "nstar_hist": {
+   "1": 5,
+   "2": 702
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a30",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 646,
+  "fr": 0,
+  "obs_rate": 0.0,
+  "n_steady": 5,
+  "pred_steady": 0.0003,
+  "pred_transient": 0.0006,
+  "nstar_hist": {
+   "4": 140,
+   "5": 506
+  }
+ },
+ {
+  "study": "E",
+  "rule": "belief_a30",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 762,
+  "fr": 14,
+  "obs_rate": 0.0184,
+  "n_steady": 5,
+  "pred_steady": 0.0205,
+  "pred_transient": 0.0218,
+  "nstar_hist": {
+   "1": 6,
+   "2": 2,
+   "3": 1,
+   "4": 148,
+   "5": 605
+  }
+ },
+ {
+  "study": "E",
+  "rule": "debounce2",
+  "rate": 0.2,
+  "corr": "independent",
+  "exposures": 970,
+  "fr": 28,
+  "obs_rate": 0.0289,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.04,
+  "nstar_hist": {
+   "2": 970
+  }
+ },
+ {
+  "study": "E",
+  "rule": "debounce2",
+  "rate": 0.2,
+  "corr": "persistent",
+  "exposures": 807,
+  "fr": 25,
+  "obs_rate": 0.031,
+  "n_steady": 2,
+  "pred_steady": 0.04,
+  "pred_transient": 0.04,
+  "nstar_hist": {
+   "2": 807
+  }
+ }
+]

@@ -1,0 +1,98 @@
+{
+ "all_frames": {
+  "main": {
+   "satisfied_samples": 524,
+   "unsatisfied_samples": 898,
+   "alpha_invalid": 0.0019,
+   "alpha_unknown": 0.0,
+   "alpha_contra": 0.0019,
+   "beta": 0.0056,
+   "s_satisfied": null,
+   "s_unsatisfied": 1.0,
+   "consecutive_pairs": {
+    "satisfied": 454,
+    "unsatisfied": 826
+   }
+  },
+  "side": {
+   "satisfied_samples": 524,
+   "unsatisfied_samples": 898,
+   "alpha_invalid": 0.5592,
+   "alpha_unknown": 0.0,
+   "alpha_contra": 0.5592,
+   "beta": 0.0,
+   "s_satisfied": 0.9713,
+   "s_unsatisfied": null,
+   "consecutive_pairs": {
+    "satisfied": 454,
+    "unsatisfied": 826
+   }
+  },
+  "cross_view": {
+   "sat": {
+    "P_err_main": 0.0019,
+    "P_err_side": 0.5592,
+    "P_err_side_given_main": 1.0
+   },
+   "unsat": {
+    "P_err_main": 0.0056,
+    "P_err_side": 0.0,
+    "P_err_side_given_main": 0.0
+   }
+  },
+  "repeat_queries": {
+   "pairs": 846,
+   "agreement": 0.9953,
+   "P_err_repeat_given_err_first": 0.9467
+  }
+ },
+ "excluding_frames_where_the_goal_object_is_held": {
+  "main": {
+   "satisfied_samples": 524,
+   "unsatisfied_samples": 688,
+   "alpha_invalid": 0.0019,
+   "alpha_unknown": 0.0,
+   "alpha_contra": 0.0019,
+   "beta": 0.0073,
+   "s_satisfied": null,
+   "s_unsatisfied": 1.0,
+   "consecutive_pairs": {
+    "satisfied": 454,
+    "unsatisfied": 616
+   }
+  },
+  "side": {
+   "satisfied_samples": 524,
+   "unsatisfied_samples": 688,
+   "alpha_invalid": 0.5592,
+   "alpha_unknown": 0.0,
+   "alpha_contra": 0.5592,
+   "beta": 0.0,
+   "s_satisfied": 0.9713,
+   "s_unsatisfied": null,
+   "consecutive_pairs": {
+    "satisfied": 454,
+    "unsatisfied": 616
+   }
+  },
+  "cross_view": {
+   "sat": {
+    "P_err_main": 0.0019,
+    "P_err_side": 0.5592,
+    "P_err_side_given_main": 1.0
+   },
+   "unsat": {
+    "P_err_main": 0.0073,
+    "P_err_side": 0.0,
+    "P_err_side_given_main": 0.0
+   }
+  },
+  "repeat_queries": {
+   "pairs": 720,
+   "agreement": 0.9944,
+   "P_err_repeat_given_err_first": 0.9467
+  }
+ },
+ "frames": 474,
+ "answered_samples": 2844
+}

@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Experiment outputs (archived separately; see README "Data")
+revision_experiments/**/results/
+revision_experiments/**/execution/
+revision_experiments/**/prechecks/
+revision_experiments/**/replicates/
+revision_experiments/**/registration*.json
+revision_experiments/**/registered_source*.zip
+revision_experiments/v12_vlm_calibration/frames/
+revision_experiments/v12_vlm_calibration/answers.jsonl
+STOP_AFTER_SEGMENT
+
+# Paper build outputs
+paper/figures/*
+!paper/figures/.gitkeep
+
+# Unity generated folders
+revision_experiments/v7/UnityRevision/[Ll]ibrary/
+revision_experiments/v7/UnityRevision/[Tt]emp/
+revision_experiments/v7/UnityRevision/[Oo]bj/
+revision_experiments/v7/UnityRevision/[Ll]ogs/
+revision_experiments/v7/UnityRevision/[Uu]ser[Ss]ettings/
+revision_experiments/v7/UnityRevision/[Bb]uild/
+*.csproj
+*.sln
+
+# Third-party Unity assets (not redistributed; see docs/THIRD_PARTY.md)
+revision_experiments/v7/UnityRevision/Assets/URDF/
+revision_experiments/v7/UnityRevision/Assets/URDF.meta
+revision_experiments/v7/UnityRevision/Assets/Environment/
+revision_experiments/v7/UnityRevision/Assets/Environment.meta
+revision_experiments/v7/UnityRevision/Assets/Materials/
+revision_experiments/v7/UnityRevision/Assets/Materials.meta
+revision_experiments/v7/UnityRevision/Assets/Prefabs/
+revision_experiments/v7/UnityRevision/Assets/Prefabs.meta
+revision_experiments/v7/UnityRevision/Assets/JustPlay*
+revision_experiments/v7/UnityRevision/Assets/LowPoly - Free Tools Pack*
+revision_experiments/v7/UnityRevision/Assets/Mugs, Bowls and Plates*
+revision_experiments/v7/UnityRevision/Assets/NekoLegends*
+revision_experiments/v7/UnityRevision/Assets/Office Supplies Low Poly*
+revision_experiments/v7/UnityRevision/Assets/PolyOne*
+revision_experiments/v7/UnityRevision/Assets/Veresen*
+
+# Secrets and local configuration
+.env
+*.key
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vs/
+.vscode/
+.idea/

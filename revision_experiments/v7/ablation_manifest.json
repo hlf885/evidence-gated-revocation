@@ -1,0 +1,887 @@
+{
+  "scope": "development mechanism ablation; same FSM; controlled simulation geometry; single crossed layout seed; no models",
+  "budget": {
+    "seconds": 240,
+    "max_actions": 12,
+    "max_recoveries": 3
+  },
+  "evaluation": {
+    "minOverlap": 0.8,
+    "maxLinearSpeed": 0.02,
+    "maxAngularSpeed": 0.1,
+    "supportDistance": 0.015,
+    "supportSkin": 0.004,
+    "stableSeconds": 0.3,
+    "maxSampleGap": 0.041,
+    "allowStackedSupport": true,
+    "maxSupportDepth": 4
+  },
+  "scenarios": [
+    {
+      "scenario_id": "2goals_no_fault_seed8101",
+      "task_length": 2,
+      "condition": "no_fault",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /></Sequence>"
+    },
+    {
+      "scenario_id": "2goals_grasp_loss_seed8101",
+      "task_length": 2,
+      "condition": "grasp_loss",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "scripted_grasp_loss",
+          "targetId": "green_ball",
+          "anchor": "g2:after_verified_pick",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /></Sequence>"
+    },
+    {
+      "scenario_id": "2goals_completed_shift_seed8101",
+      "task_length": 2,
+      "condition": "completed_shift",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /></Sequence>"
+    },
+    {
+      "scenario_id": "2goals_minor_shift_seed8101",
+      "task_length": 2,
+      "condition": "minor_shift",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.003,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.001
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /></Sequence>"
+    },
+    {
+      "scenario_id": "3goals_no_fault_seed8101",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "3goals_grasp_loss_seed8101",
+      "task_length": 3,
+      "condition": "grasp_loss",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "scripted_grasp_loss",
+          "targetId": "green_ball",
+          "anchor": "g2:after_verified_pick",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "3goals_completed_shift_seed8101",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "3goals_minor_shift_seed8101",
+      "task_length": 3,
+      "condition": "minor_shift",
+      "seed": 8101,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.004193,
+          "y": 0,
+          "z": 0.005854
+        },
+        "green_ball": {
+          "x": 0.006633,
+          "y": 0,
+          "z": -0.005625
+        },
+        "yellow_cylinder": {
+          "x": -0.000227,
+          "y": 0,
+          "z": -0.007254
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.003,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.001
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    }
+  ],
+  "units": [
+    {
+      "trial_id": "3goals_grasp_loss_seed8101_commit_only",
+      "scenario_id": "3goals_grasp_loss_seed8101",
+      "memory": "commit_only",
+      "block": 0
+    },
+    {
+      "trial_id": "3goals_grasp_loss_seed8101_revocable",
+      "scenario_id": "3goals_grasp_loss_seed8101",
+      "memory": "revocable",
+      "block": 0
+    },
+    {
+      "trial_id": "3goals_minor_shift_seed8101_revocable",
+      "scenario_id": "3goals_minor_shift_seed8101",
+      "memory": "revocable",
+      "block": 1
+    },
+    {
+      "trial_id": "3goals_minor_shift_seed8101_commit_only",
+      "scenario_id": "3goals_minor_shift_seed8101",
+      "memory": "commit_only",
+      "block": 1
+    },
+    {
+      "trial_id": "2goals_completed_shift_seed8101_commit_only",
+      "scenario_id": "2goals_completed_shift_seed8101",
+      "memory": "commit_only",
+      "block": 2
+    },
+    {
+      "trial_id": "2goals_completed_shift_seed8101_revocable",
+      "scenario_id": "2goals_completed_shift_seed8101",
+      "memory": "revocable",
+      "block": 2
+    },
+    {
+      "trial_id": "3goals_no_fault_seed8101_revocable",
+      "scenario_id": "3goals_no_fault_seed8101",
+      "memory": "revocable",
+      "block": 3
+    },
+    {
+      "trial_id": "3goals_no_fault_seed8101_commit_only",
+      "scenario_id": "3goals_no_fault_seed8101",
+      "memory": "commit_only",
+      "block": 3
+    },
+    {
+      "trial_id": "3goals_completed_shift_seed8101_commit_only",
+      "scenario_id": "3goals_completed_shift_seed8101",
+      "memory": "commit_only",
+      "block": 4
+    },
+    {
+      "trial_id": "3goals_completed_shift_seed8101_revocable",
+      "scenario_id": "3goals_completed_shift_seed8101",
+      "memory": "revocable",
+      "block": 4
+    },
+    {
+      "trial_id": "2goals_grasp_loss_seed8101_revocable",
+      "scenario_id": "2goals_grasp_loss_seed8101",
+      "memory": "revocable",
+      "block": 5
+    },
+    {
+      "trial_id": "2goals_grasp_loss_seed8101_commit_only",
+      "scenario_id": "2goals_grasp_loss_seed8101",
+      "memory": "commit_only",
+      "block": 5
+    },
+    {
+      "trial_id": "2goals_no_fault_seed8101_commit_only",
+      "scenario_id": "2goals_no_fault_seed8101",
+      "memory": "commit_only",
+      "block": 6
+    },
+    {
+      "trial_id": "2goals_no_fault_seed8101_revocable",
+      "scenario_id": "2goals_no_fault_seed8101",
+      "memory": "revocable",
+      "block": 6
+    },
+    {
+      "trial_id": "2goals_minor_shift_seed8101_revocable",
+      "scenario_id": "2goals_minor_shift_seed8101",
+      "memory": "revocable",
+      "block": 7
+    },
+    {
+      "trial_id": "2goals_minor_shift_seed8101_commit_only",
+      "scenario_id": "2goals_minor_shift_seed8101",
+      "memory": "commit_only",
+      "block": 7
+    }
+  ]
+}

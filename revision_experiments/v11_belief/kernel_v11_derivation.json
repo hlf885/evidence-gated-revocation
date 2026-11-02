@@ -1,0 +1,72 @@
+{
+  "source": "../v7/ablation_runner.py",
+  "source_sha256": "3c715ea11c5f2cb68ee31e98e977481953be06ad2f80b41e95b8b28341bc5a51",
+  "base": "../v10_studyC/kernel_derivation.json (S1-S12)",
+  "substitutions": [
+    {
+      "id": "S1",
+      "old": "tid=unit['trial_id'];memory_name=unit['memory'];",
+      "new": "tid=unit['trial_id'];memory_name=unit['rule'];"
+    },
+    {
+      "id": "S2",
+      "old": "    if memory_name not in ['commit_only','revocable']:raise ContractError('unknown memory condition')\n    memory=CompletionMemory(tid,[g.id for g in goals],revoke=memory_name=='revocable')\n",
+      "new": "    # Study C: the completion rule and the synthetic watchdog error are the only changes.\n    memory=make_memory(memory_name,tid,[g.id for g in goals])\n    noise=WatchdogNoise(manifest['protocol_id'],scenario['seed'],unit['noise_type'],unit['noise_rate'])\n"
+    },
+    {
+      "id": "S3",
+      "old": "        packet=paired(label);before=sorted(memory.committed);invalidated=memory.refresh(packet['watchdog'])\n",
+      "new": "        packet=paired(label);before=sorted(memory.committed)\n        controller_watchdog,flips=noise.apply(packet['watchdog'])\n        journal.emit('controller_watchdog',label=label,sequence=controller_watchdog['sequence'],refresh_index=noise.refresh_index-1,\n            goals=controller_watchdog['goals'],flips=flips)\n        invalidated=memory.refresh(controller_watchdog)\n"
+    },
+    {
+      "id": "S4",
+      "old": "memory=memory_name,budget=manifest['budget'],",
+      "new": "memory=memory_name,noise_type=unit['noise_type'],noise_rate=unit['noise_rate'],budget=manifest['budget'],"
+    },
+    {
+      "id": "S5",
+      "old": "'llm_calls':0,'vlm_calls':0}\n        journal.emit('resource_counts'",
+      "new": "'llm_calls':0,'vlm_calls':0,'observation_flips':noise.flip_count}\n        journal.emit('resource_counts'"
+    },
+    {
+      "id": "S6",
+      "old": "'memory':memory_name,'success':success,",
+      "new": "'memory':memory_name,'rule':memory_name,'noise_type':unit['noise_type'],'noise_rate':unit['noise_rate'],'success':success,"
+    },
+    {
+      "id": "S7",
+      "old": "policy=StateMachinePolicy(goals);",
+      "new": "policy=HoldingFirstStateMachine(goals);"
+    },
+    {
+      "id": "S8",
+      "old": "controller='same StateMachinePolicy',",
+      "new": "controller='v7 StateMachinePolicy + holding-first extension (policy.py)',"
+    },
+    {
+      "id": "S9",
+      "old": "            if f['anchor']!=anchor or f['id'] in triggered:continue\n            triggered.add(f['id']);paired('before_fault_audit_only')\n",
+      "new": "            if f['anchor']!=anchor or f['id'] in triggered:continue\n            # A1/S9: apparatus-only gate on the independent score; never an input to the controller.\n            pre=call('REV_OBSERVE_AUDIT')\n            journal.emit('paired_observation',label='fault_precondition_audit_only',watchdog=pre['watchdog'],holding=pre['holding'],score=pre['score'])\n            if not fault_precondition(f,scenario,pre['score'],pre['holding']):\n                journal.emit('fault_deferred_precondition',event_id=f['id'],anchor=anchor,reason='target_goal_not_independently_satisfied_or_target_held');continue\n            triggered.add(f['id']);paired('before_fault_audit_only')\n"
+    },
+    {
+      "id": "S10",
+      "old": "        response=rpc.call(verb,tid,timeout=min(60,budget.remaining()),**payload)\n",
+      "new": "        try:response=rpc.call(verb,tid,timeout=min(60,budget.remaining()),**payload)\n        except TimeoutError:\n            budget.remaining()  # A1/S10: raises BudgetExceeded if the wall-time budget is what expired\n            raise\n"
+    },
+    {
+      "id": "S11",
+      "old": "                if signature(fresh)!=signature(obs):\n                    cancelled=True;raise FeedbackChanged('online_state_changed_during_localization')\n",
+      "new": "                if signature(fresh)!=signature(obs):\n                    cancelled=True;raise FeedbackChanged('online_state_changed_during_localization')\n                if not within_workspace(location['position']):\n                    cancelled=True;raise FeedbackChanged('target_outside_workspace')  # A1/S11\n"
+    },
+    {
+      "id": "S12",
+      "old": "        reason=type(exc).__name__+': '+str(exc);infra=True;journal.emit('trial_error',error=reason,infrastructure_error=True)\n",
+      "new": "        reason=type(exc).__name__+': '+str(exc)\n        infra=not(isinstance(exc,TimeoutError) and 'REV_ACTION' in str(exc))  # A1/S12\n        if not infra:reason='ACTION_TIMEOUT: '+reason\n        journal.emit('trial_error',error=reason,infrastructure_error=infra)\n"
+    },
+    {
+      "id": "S13",
+      "old": "            obs,invalidated=observe('before_decision')\n            if invalidated:recovery('progress_revoked_before_decision')\n",
+      "new": "            obs,invalidated=observe('before_decision')\n            if invalidated:recovery('progress_revoked_before_decision')\n            reobserved=0  # v11/S13: bounded re-observation while a completion belief is ambiguous\n            while getattr(memory,'wants_reobservation',lambda:False)() and reobserved<2:\n                reobserved+=1;journal.emit('belief_reobservation',number=reobserved,wait_seconds=.25);time.sleep(.25)\n                obs,invalidated=observe('belief_reobservation')\n                if invalidated:recovery('progress_revoked_before_decision')\n"
+    }
+  ]
+}

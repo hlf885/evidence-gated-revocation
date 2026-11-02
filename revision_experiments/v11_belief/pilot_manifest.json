@@ -1,0 +1,1670 @@
+{
+  "protocol_id": "AR-belief-pilot-v1",
+  "scope": "v11 GATE-2 DEVELOPMENT PILOT: belief completion state vs revocable vs reactive; excluded from confirmatory analyses",
+  "design_seed": 2026103001,
+  "layout_seeds": [
+    688468,
+    854659,
+    693048,
+    829229,
+    692539
+  ],
+  "rules": [
+    "belief",
+    "revocable",
+    "reactive"
+  ],
+  "cells": [
+    {
+      "condition": "no_fault",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1
+    },
+    {
+      "condition": "completed_shift",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1
+    },
+    {
+      "condition": "completed_shift",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1
+    },
+    {
+      "condition": "completed_shift",
+      "noise_type": "none",
+      "noise_rate": 0.0
+    }
+  ],
+  "segment_size": 20,
+  "budget": {
+    "seconds": 240,
+    "max_actions": 12,
+    "max_recoveries": 3
+  },
+  "evaluation": {
+    "minOverlap": 0.8,
+    "maxLinearSpeed": 0.02,
+    "maxAngularSpeed": 0.1,
+    "supportDistance": 0.015,
+    "supportSkin": 0.004,
+    "stableSeconds": 0.3,
+    "maxSampleGap": 0.041,
+    "allowStackedSupport": true,
+    "maxSupportDepth": 4
+  },
+  "scenarios": [
+    {
+      "scenario_id": "belief_pilot_no_fault_seed688468",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 688468,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.005955,
+          "y": 0,
+          "z": -0.002272
+        },
+        "green_ball": {
+          "x": -0.00614,
+          "y": 0,
+          "z": 0.005204
+        },
+        "yellow_cylinder": {
+          "x": -0.002599,
+          "y": 0,
+          "z": 0.006259
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 688468,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.005955,
+          "y": 0,
+          "z": -0.002272
+        },
+        "green_ball": {
+          "x": -0.00614,
+          "y": 0,
+          "z": 0.005204
+        },
+        "yellow_cylinder": {
+          "x": -0.002599,
+          "y": 0,
+          "z": 0.006259
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_no_fault_seed854659",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 854659,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.003585,
+          "y": 0,
+          "z": 0.000995
+        },
+        "green_ball": {
+          "x": -0.00014,
+          "y": 0,
+          "z": 0.007302
+        },
+        "yellow_cylinder": {
+          "x": -0.001635,
+          "y": 0,
+          "z": 0.001848
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 854659,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.003585,
+          "y": 0,
+          "z": 0.000995
+        },
+        "green_ball": {
+          "x": -0.00014,
+          "y": 0,
+          "z": 0.007302
+        },
+        "yellow_cylinder": {
+          "x": -0.001635,
+          "y": 0,
+          "z": 0.001848
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_no_fault_seed693048",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 693048,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": -0.002185,
+          "y": 0,
+          "z": -0.002789
+        },
+        "green_ball": {
+          "x": 0.00079,
+          "y": 0,
+          "z": 0.001958
+        },
+        "yellow_cylinder": {
+          "x": 0.006392,
+          "y": 0,
+          "z": -0.005912
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 693048,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": -0.002185,
+          "y": 0,
+          "z": -0.002789
+        },
+        "green_ball": {
+          "x": 0.00079,
+          "y": 0,
+          "z": 0.001958
+        },
+        "yellow_cylinder": {
+          "x": 0.006392,
+          "y": 0,
+          "z": -0.005912
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_no_fault_seed829229",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 829229,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": -0.001291,
+          "y": 0,
+          "z": -0.006379
+        },
+        "green_ball": {
+          "x": -0.004837,
+          "y": 0,
+          "z": 0.005729
+        },
+        "yellow_cylinder": {
+          "x": -0.005023,
+          "y": 0,
+          "z": 0.007627
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 829229,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": -0.001291,
+          "y": 0,
+          "z": -0.006379
+        },
+        "green_ball": {
+          "x": -0.004837,
+          "y": 0,
+          "z": 0.005729
+        },
+        "yellow_cylinder": {
+          "x": -0.005023,
+          "y": 0,
+          "z": 0.007627
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_no_fault_seed692539",
+      "task_length": 3,
+      "condition": "no_fault",
+      "seed": 692539,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.000691,
+          "y": 0,
+          "z": 0.002241
+        },
+        "green_ball": {
+          "x": 0.004855,
+          "y": 0,
+          "z": -0.004726
+        },
+        "yellow_cylinder": {
+          "x": -0.004651,
+          "y": 0,
+          "z": -0.003652
+        }
+      },
+      "faults": [],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    },
+    {
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "task_length": 3,
+      "condition": "completed_shift",
+      "seed": 692539,
+      "entities": [
+        {
+          "id": "red_cube",
+          "sceneName": "RedCube",
+          "kind": "object",
+          "aliases": [
+            "red cube",
+            "RedCube"
+          ]
+        },
+        {
+          "id": "green_ball",
+          "sceneName": "GreenBall",
+          "kind": "object",
+          "aliases": [
+            "green ball",
+            "GreenBall"
+          ]
+        },
+        {
+          "id": "yellow_cylinder",
+          "sceneName": "YellowCylinder",
+          "kind": "object",
+          "aliases": [
+            "yellow cylinder",
+            "YellowCylinder"
+          ]
+        },
+        {
+          "id": "bowl",
+          "sceneName": "bowl02",
+          "kind": "container",
+          "aliases": [
+            "bowl02"
+          ]
+        },
+        {
+          "id": "yellow_plate",
+          "sceneName": "plate02",
+          "kind": "container",
+          "aliases": [
+            "yellow plate",
+            "plate02"
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "objectId": "red_cube",
+          "containerId": "bowl"
+        },
+        {
+          "id": "g2",
+          "objectId": "green_ball",
+          "containerId": "yellow_plate"
+        },
+        {
+          "id": "g3",
+          "objectId": "yellow_cylinder",
+          "containerId": "bowl"
+        }
+      ],
+      "layout_offsets": {
+        "red_cube": {
+          "x": 0.000691,
+          "y": 0,
+          "z": 0.002241
+        },
+        "green_ball": {
+          "x": 0.004855,
+          "y": 0,
+          "z": -0.004726
+        },
+        "yellow_cylinder": {
+          "x": -0.004651,
+          "y": 0,
+          "z": -0.003652
+        }
+      },
+      "faults": [
+        {
+          "id": "event_once",
+          "type": "object_shift",
+          "targetId": "red_cube",
+          "anchor": "g2:after_pick_localization",
+          "offset": {
+            "x": 0.3,
+            "y": 0,
+            "z": 0
+          },
+          "observeSeconds": 1,
+          "minDisplacement": 0.005
+        }
+      ],
+      "initial_plan_xml": "<Sequence><Action name=\"PICK\" target=\"red_cube\" /><Action name=\"PLACE\" target=\"bowl\" /><Action name=\"PICK\" target=\"green_ball\" /><Action name=\"PLACE\" target=\"yellow_plate\" /><Action name=\"PICK\" target=\"yellow_cylinder\" /><Action name=\"PLACE\" target=\"bowl\" /></Sequence>"
+    }
+  ],
+  "units": [
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_belief_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_revocable_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_revocable_none",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_belief_none",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed688468_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed688468",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "no_fault",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_reactive_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed688468_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed688468",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "no_fault",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed688468_reactive_none",
+      "scenario_id": "belief_pilot_completed_shift_seed688468",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 688468,
+      "condition": "completed_shift",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed688468_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed688468",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 688468,
+      "condition": "no_fault",
+      "block": 0
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_reactive_none",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_belief_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed854659_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed854659",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "no_fault",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_reactive_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_revocable_none",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed854659_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed854659",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "no_fault",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_revocable_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_belief_none",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed854659_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed854659",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "no_fault",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed854659_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed854659",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 854659,
+      "condition": "completed_shift",
+      "block": 1
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed693048_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed693048",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "no_fault",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_revocable_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_belief_none",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_reactive_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed693048_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed693048",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "no_fault",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_belief_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_reactive_none",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed693048_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed693048",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 693048,
+      "condition": "no_fault",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed693048_revocable_none",
+      "scenario_id": "belief_pilot_completed_shift_seed693048",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 693048,
+      "condition": "completed_shift",
+      "block": 2
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_belief_none",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_revocable_none",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_belief_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_reactive_none",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed829229_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed829229",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "no_fault",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed829229_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed829229",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "no_fault",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_revocable_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed829229_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed829229",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "no_fault",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_reactive_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed829229_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed829229",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 829229,
+      "condition": "completed_shift",
+      "block": 3
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_revocable_none",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed692539_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed692539",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "no_fault",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_revocable_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_reactive_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_reactive_none",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed692539_revocable_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed692539",
+      "rule": "revocable",
+      "memory": "revocable",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "no_fault",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_belief_none",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "none",
+      "noise_rate": 0.0,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_belief_false_consistent_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_completed_shift_seed692539_belief_false_invalid_10",
+      "scenario_id": "belief_pilot_completed_shift_seed692539",
+      "rule": "belief",
+      "memory": "belief",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "completed_shift",
+      "block": 4
+    },
+    {
+      "trial_id": "belief_pilot_no_fault_seed692539_reactive_false_invalid_10",
+      "scenario_id": "belief_pilot_no_fault_seed692539",
+      "rule": "reactive",
+      "memory": "reactive",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "seed": 692539,
+      "condition": "no_fault",
+      "block": 4
+    }
+  ]
+}

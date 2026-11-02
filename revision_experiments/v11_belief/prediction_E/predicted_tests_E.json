@@ -1,0 +1,24 @@
+{
+  "type": "PREDICTION (model simulation), NOT data",
+  "replicates": 50,
+  "primary": [
+    {
+      "id": "H1",
+      "pred_power_holm": 1.0,
+      "pred_total_diff_mean": 41.92,
+      "pred_total_diff_95": [
+        27.225,
+        65.74999999999999
+      ]
+    },
+    {
+      "id": "H2",
+      "pred_power_holm": 1.0,
+      "pred_total_diff_mean": 38.94,
+      "pred_total_diff_95": [
+        24.225,
+        64.1
+      ]
+    }
+  ]
+}

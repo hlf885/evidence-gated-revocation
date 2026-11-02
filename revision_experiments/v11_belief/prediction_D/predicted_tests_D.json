@@ -1,0 +1,233 @@
+{
+  "type": "PREDICTION (model simulation), NOT data",
+  "replicates": 50,
+  "world": "v10 prediction v3 stochastic world; no contact coupling (cascades not modelled)",
+  "primary": [
+    {
+      "contrast": "belief - revocable",
+      "condition": "no_fault",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 6.24,
+      "pred_diff_95": [
+        3.0,
+        10.774999999999999
+      ],
+      "pred_power_holm": 0.6,
+      "family": "primary (Holm 4)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "completed_shift",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 9.56,
+      "pred_diff_95": [
+        6.0,
+        13.774999999999999
+      ],
+      "pred_power_holm": 0.94,
+      "family": "primary (Holm 4)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "no_fault",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 14.5,
+      "pred_diff_95": [
+        11.0,
+        18.0
+      ],
+      "pred_power_holm": 1.0,
+      "family": "primary (Holm 4)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "completed_shift",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 17.94,
+      "pred_diff_95": [
+        15.0,
+        20.0
+      ],
+      "pred_power_holm": 1.0,
+      "family": "primary (Holm 4)"
+    }
+  ],
+  "key_secondary": [
+    {
+      "contrast": "belief - revocable",
+      "condition": "no_fault",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 0.24,
+      "pred_diff_95": [
+        -1.0,
+        2.0
+      ],
+      "pred_power_holm": 0.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "no_fault",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.2,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 14.06,
+      "pred_diff_95": [
+        9.45,
+        17.0
+      ],
+      "pred_power_holm": 0.96,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "no_fault",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.2,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 1.28,
+      "pred_diff_95": [
+        -1.0,
+        4.774999999999999
+      ],
+      "pred_power_holm": 0.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "completed_shift",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.1,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 1.12,
+      "pred_diff_95": [
+        -1.0,
+        4.0
+      ],
+      "pred_power_holm": 0.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "completed_shift",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.2,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 14.68,
+      "pred_diff_95": [
+        9.45,
+        18.0
+      ],
+      "pred_power_holm": 1.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - revocable",
+      "condition": "completed_shift",
+      "noise_type": "false_invalid",
+      "noise_rate": 0.2,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 2.86,
+      "pred_diff_95": [
+        -0.7749999999999999,
+        6.774999999999999
+      ],
+      "pred_power_holm": 0.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "no_fault",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 5.2,
+      "pred_diff_95": [
+        2.0,
+        9.774999999999999
+      ],
+      "pred_power_holm": 0.14,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "no_fault",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.2,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 19.38,
+      "pred_diff_95": [
+        17.225,
+        20.0
+      ],
+      "pred_power_holm": 1.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "no_fault",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.2,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 9.98,
+      "pred_diff_95": [
+        6.0,
+        14.0
+      ],
+      "pred_power_holm": 0.74,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "completed_shift",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.1,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 7,
+      "pred_diff_95": [
+        2.45,
+        11.0
+      ],
+      "pred_power_holm": 0.42,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "completed_shift",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.2,
+      "noise_correlation": "independent",
+      "pred_success_diff_mean": 18.68,
+      "pred_diff_95": [
+        16.225,
+        20.0
+      ],
+      "pred_power_holm": 1.0,
+      "family": "key secondary (Holm 12)"
+    },
+    {
+      "contrast": "belief - reactive",
+      "condition": "completed_shift",
+      "noise_type": "false_consistent",
+      "noise_rate": 0.2,
+      "noise_correlation": "persistent",
+      "pred_success_diff_mean": 11.96,
+      "pred_diff_95": [
+        7.45,
+        16.0
+      ],
+      "pred_power_holm": 0.88,
+      "family": "key secondary (Holm 12)"
+    }
+  ]
+}
