@@ -119,7 +119,8 @@ The figures are written to `paper/figures/`.
 
 The sealed trial records of Studies C–F (per-trial event logs, summaries, `trials.csv`, `inference.json`),
 the prediction replicates, the captured VLM frames and answers, and the original registration files with their
-SHA-256 digests are archived separately: **DOI to be added**. Extract the archive into the repository root;
+SHA-256 digests are archived on Zenodo: [10.5281/zenodo.23903834](https://doi.org/10.5281/zenodo.23903834).
+Download `evidence-gated-revocation-data.zip` and copy its `revision_experiments/` folder into the repository root;
 it places each `results/` folder next to the runner that produced it.
 
 The study protocols were frozen locally before each formal run; they are not entries in a public registry.
